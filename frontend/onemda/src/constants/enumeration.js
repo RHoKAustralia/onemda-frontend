@@ -58,5 +58,9 @@ export const HealthCategories = [
   {'value': 'swimming', 'label': 'swimming'}
 ]
 
-
+export const PersonalDevelopmentOutComes = [
+  {'value': 'Exploring' , 'label': 'Exploring'},
+  {'value': 'Maintaining', 'label': 'Maintaining'},
+  {'value': 'Progessing', 'label': 'Progessing'}
+]
 
