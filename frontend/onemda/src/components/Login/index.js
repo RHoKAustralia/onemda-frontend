@@ -1,5 +1,6 @@
 import React from 'react';
 import SelectBox from '../../common/SelectBox/index'
+import RadioButtonMulti from '../../common/RadioButtonMulti/index'
 import * as constants from '../../constants/enumeration'
 const Login =(props)=> {
   const loginSubmitHandler=()=>{
@@ -22,6 +23,13 @@ const Login =(props)=> {
           id="timeConverstion"
           name="timeConverstion"
           data={constants.TimeConvention}/>
+
+        <RadioButtonMulti
+          label="choose one"
+          id="timeConverstion"
+          name="developmentOutcome"
+          data={constants.PersonalDevelopmentOutComes}/>
+        
         <div className="form-group form-check">
           <label className="form-check-label">
             <input className="form-check-input" type="checkbox" name="remember"/> Remember me

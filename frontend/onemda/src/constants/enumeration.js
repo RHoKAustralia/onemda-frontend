@@ -32,5 +32,9 @@ export const LearningCategories = [
   {'value': 'mitre 10', 'label': 'mitre 10'}
 ]
 
-
+export const PersonalDevelopmentOutComes = [
+  {'value': 'Exploring' , 'label': 'Exploring'},
+  {'value': 'Maintaining', 'label': 'Maintaining'},
+  {'value': 'Progessing', 'label': 'Progessing'}
+]
 
