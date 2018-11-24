@@ -1,44 +1,73 @@
-import React from 'react';
+import React, {Component} from 'react';
 import SelectBox from '../../common/SelectBox/index'
-import RadioButtonMulti from '../../common/RadioButtonMulti/index'
 import * as constants from '../../constants/enumeration'
-const Login =(props)=> {
-  const loginSubmitHandler=()=>{
-    props.onSubmit('hello')
-  }
-  return (
-    <div className="container">
-      <h2>Register form</h2>
-      <form>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input type="email" className="form-control" id="email" placeholder="Enter email" name="email"/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="pwd">Password:</label>
-          <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pswd"/>
-        </div>
-        <SelectBox
-          label="choose one"
-          id="timeConverstion"
-          name="timeConverstion"
-          data={constants.TimeConvention}/>
 
-        <RadioButtonMulti
-          label="choose one"
-          id="timeConverstion"
-          name="developmentOutcome"
-          data={constants.PersonalDevelopmentOutComes}/>
-        
-        <div className="form-group form-check">
-          <label className="form-check-label">
-            <input className="form-check-input" type="checkbox" name="remember"/> Remember me
-          </label>
+class Login extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      newProgramDetails: {
+        program: "",
+        subCategory: "",
+      },
+      submittedData:null
+    }
+  }
+  handleInput=(e)=> {
+    let value = e.target.value;
+    let name = e.target.name;
+    this.setState(prevState => ({
+        newProgramDetails: {...prevState.newProgramDetails, [name]: value}
+      }),
+      () => console.log(this.state.newProgramDetails)
+    );
+  }
+
+  loginSubmitHandler=()=>{
+
+  }
+  getCategories=()=>{
+    if(this.state.newProgramDetails && this.state.newProgramDetails.program === 'Learning'){
+      return constants.LearningCategories
+    } else if(this.state.newProgramDetails && this.state.newProgramDetails.program === 'Social & Rec'){
+      return constants.SocialCategories
+    } else if(this.state.newProgramDetails && this.state.newProgramDetails.program === 'Health & Wellbeing'){
+      return constants.HealthCategories
+    } else {}
+  }
+
+  isCategoryPresent=()=>{
+    if(this.state.newProgramDetails && this.state.newProgramDetails.program){
+      return true
+    } else {
+      return false
+    }
+  }
+  render(){
+    return (
+      <div className="container">
+        <div className="row">
+          <h2>Fill your details</h2>
         </div>
-        <button type="submit" className="btn btn-primary" onClick={loginSubmitHandler} >Submit</button>
-      </form>
-    </div>
-  )
+        <form className="form-horizontal">
+          <SelectBox
+            label="Program: "
+            id="program"
+            name="program"
+            value={this.state.newProgramDetails.program}
+            data={constants.ProgramCategory}
+            handleChange={this.handleInput}/>
+          {this.isCategoryPresent() && <SelectBox
+            label=""
+            id="subCategory"
+            name="subCategory"
+            value={this.state.newProgramDetails.subCategory}
+            data={this.getCategories()}
+            handleChange={this.handleInput}/>}
+        </form>
+      </div>
+    )
+  }
 }
 
 export default Login;

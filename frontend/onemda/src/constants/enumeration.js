@@ -4,11 +4,11 @@ export const TimeConvention = [
   {'value': 'AM', 'label': 'Morning'},
   {'value': 'PM', 'label': 'Afternoon'}
 ]
-export const Categories = [
-  {'value': '', 'label': 'Select category'},
-  {'value': 'AM', 'label': 'Learning'},
-  {'value': 'PM', 'label': 'Social & Rec'},
-  {'value': 'PM', 'label': 'Health & Wellbeing'}
+export const ProgramCategory = [
+  {'value': '', 'label': 'Select one'},
+  {'value': 'Learning', 'label': 'Learning'},
+  {'value': 'Social & Rec', 'label': 'Social & Rec'},
+  {'value': 'Health & Wellbeing', 'label': 'Health & Wellbeing'}
 ]
 export const LearningCategories = [
   {'value': '', 'label': 'Select one'},
@@ -30,6 +30,32 @@ export const LearningCategories = [
   {'value': 'lend a hand', 'label': 'lend a hand'},
   {'value': 'flower/deliver', 'label': 'flower/deliver'},
   {'value': 'mitre 10', 'label': 'mitre 10'}
+]
+export const SocialCategories = [
+  {'value': '', 'label': 'Select one'},
+  {'value': 'explore parks & gardens', 'label': 'explore parks & gardens'},
+  {'value': 'armchair travel', 'label': 'armchair travel'},
+  {'value': 'music', 'label': 'music'},
+  {'value': 'art', 'label': 'art'},
+  {'value': 'indoor games', 'label': 'indoor games'},
+  {'value': 'library', 'label': 'library'},
+  {'value': 'theatre sports', 'label': 'theatre sports'},
+  {'value': 'men shed', 'label': 'men shed'},
+  {'value': 'horse riding', 'label': 'horse riding'},
+  {'value': 'explore Melbourne', 'label': 'explore Melbourne'},
+  {'value': 'community access', 'label': 'community access'},
+  {'value': 'outdoor sports', 'label': 'outdoor sports'},
+  {'value': 'soccer', 'label': 'soccer'}
+]
+export const HealthCategories = [
+  {'value': '', 'label': 'Select one'},
+  {'value': 'food & meal prep', 'label': 'food & meal prep'},
+  {'value': 'exercise & physio', 'label' : 'exercise & physio'},
+  {'value': 'relaxation', 'label': 'relaxation'},
+  {'value': 'sensory', 'label': 'sensory'},
+  {'value': 'music/stories', 'label': 'music/stories'},
+  {'value': 'music therapy', 'label': 'music therapy'},
+  {'value': 'swimming', 'label': 'swimming'}
 ]
 
 export const PersonalDevelopmentOutComes = [
