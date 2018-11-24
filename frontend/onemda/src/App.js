@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/index'
-import Login from './components/Login/index'
-import { Switch, Route } from 'react-router-dom'
+import MainApp from './MainApp/index'
 class App extends Component {
+
   render() {
     return (
       <div>
         <Navbar/>
-        <main>
-          <Switch>
-            <Route exact path='/' component={Login}/>
-          </Switch>
-        </main>
+        <MainApp/>
       </div>
     );
   }
