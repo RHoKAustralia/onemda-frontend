@@ -5,7 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 class MainApp extends Component {
   constructor(props){
     super(props)
-    this.state={
+    this.state = {
       submittedData:null
     }
   }
