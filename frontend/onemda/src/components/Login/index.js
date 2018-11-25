@@ -129,8 +129,9 @@ class Login extends Component {
     e.preventDefault()
     console.log('submitting')
 
+    const randomInstructorID = "ABC"+Math.floor((Math.random() * 1000) + 1);
     const data = {
-      "instructor_id" : "ABC123456",
+      "instructor_id" : randomInstructorID,
       "instructor_name" : "ABC123",
       "session_date": "23-11-2018",
       "session_time":"Morning",
