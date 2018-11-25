@@ -8,10 +8,12 @@ const getOptions=(data)=>{
 const SelectBox =(props)=> {
   return (
   <div className="form-group row">
-    <label className="col-sm-2" htmlFor={props.id}>{props.label}</label>
-    <select className="form-control col-sm-6" id={props.id} name={props.name} onChange={props.handleChange} value={props.value}>
-      {getOptions(props.data)}
-    </select>
+    <label className="col-sm-2 col-form-label" htmlFor={props.id}>{props.label}</label>
+    <div className="col-sm-9">
+      <select className="form-control col-sm-12" id={props.id} name={props.name} onChange={props.handleChange} value={props.value}>
+        {getOptions(props.data)}
+      </select>
+    </div>
   </div>
   )
 }

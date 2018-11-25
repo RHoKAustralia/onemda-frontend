@@ -30,3 +30,10 @@
     transform: rotate(360deg);
   }
 }
+.test{
+  background: url("https://res.cloudinary.com/turdlife/image/upload/v1492864443/sad_bj1tuj.svg") center;
+  background-size: cover;
+  height:100px;
+  width:100px;
+}
+
