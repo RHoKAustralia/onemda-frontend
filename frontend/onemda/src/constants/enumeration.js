@@ -54,7 +54,8 @@ export const HealthCategories = [
   {'value': 'sensory', 'label': 'sensory'},
   {'value': 'music/stories', 'label': 'music/stories'},
   {'value': 'music therapy', 'label': 'music therapy'},
-  {'value': 'swimming', 'label': 'swimming'}
+  {'value': 'swimming', 'label': 'swimming'},
+  {'value': 'horse riding', 'label': 'horse riding'},
 ]
 
 export const PersonalDevelopmentOutComes = [
