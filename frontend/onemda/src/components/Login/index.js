@@ -59,50 +59,43 @@ class Login extends Component {
 
   componentDidMount() {
     fetch('http://localhost:8099/api/onemda/categories')
-    .then(response => response.json())
-    .then(myJson => {
-      this.setState({data: myJson}
-    )})
-  }
-
-
-  componentDidMount() {
-    fetch('http://localhost:8099/api/onemda/categories')
       .then(response => response.json())
       .then(myJson => {
-        this.setState({data: myJson}
-        )})
-    let data = stubbedData.STUBBED
-    if(data && data.length>0){
-      let service_category =[{'value': '', 'label': 'Select one'}]
-      let SocialCategories =[{'value': '', 'label': 'Select one'}]
-      let LearningCategories=[{'value': '', 'label': 'Select one'}]
-      let HealthCategories=[{'value': '', 'label': 'Select one'}]
-      data.forEach((item)=>{
-        service_category.push({'value': item.service_category, 'label': item.service_category})
-        if(item.service_category === 'Learning'){
-          item.activities.forEach((item)=>{
-            LearningCategories.push({'value': item.activity_name, 'label': item.activity_name})
+        // this.setState({data: myJson}
+        //let data = stubbedData.STUBBED
+        let data = myJson
+        if(data && data.length>0){
+          let service_category =[{'value': '', 'label': 'Select one'}]
+          let SocialCategories =[{'value': '', 'label': 'Select one'}]
+          let LearningCategories=[{'value': '', 'label': 'Select one'}]
+          let HealthCategories=[{'value': '', 'label': 'Select one'}]
+          data.forEach((item)=>{
+            service_category.push({'value': item.service_category, 'label': item.service_category})
+            if(item.service_category === 'Learning'){
+              item.activities.forEach((item)=>{
+                LearningCategories.push({'value': item.activity_name, 'label': item.activity_name})
+              })
+            }
+            if(item.service_category === 'Health & Wellbeing'){
+              item.activities.forEach((item)=>{
+                HealthCategories.push({'value': item.activity_name, 'label': item.activity_name})
+              })
+            }
+            if(item.service_category === 'Social and Rec'){
+              item.activities.forEach((item)=>{
+                SocialCategories.push({'value': item.activity_name, 'label': item.activity_name})
+              })
+            }
           })
+          this.setState(prevState => ({
+            categoryData: [...prevState.categoryData, ...service_category],
+            LearningCategories: [...prevState.categoryData, ...LearningCategories],
+            HealthCategories: [...prevState.categoryData, ...HealthCategories],
+            SocialCategories: [...prevState.categoryData, ...SocialCategories]
+          }))
         }
-        if(item.service_category === 'Health & Wellbeing'){
-          item.activities.forEach((item)=>{
-            HealthCategories.push({'value': item.activity_name, 'label': item.activity_name})
-          })
-        }
-        if(item.service_category === 'Social and Rec'){
-          item.activities.forEach((item)=>{
-            SocialCategories.push({'value': item.activity_name, 'label': item.activity_name})
-          })
-        }
-      })
-      this.setState(prevState => ({
-        categoryData: [...prevState.categoryData, ...service_category],
-        LearningCategories: [...prevState.categoryData, ...LearningCategories],
-        HealthCategories: [...prevState.categoryData, ...HealthCategories],
-        SocialCategories: [...prevState.categoryData, ...SocialCategories]
-      }))
-    }
+        })
+
   }
   handleInput=(e)=> {
     let value = e.target.value;
