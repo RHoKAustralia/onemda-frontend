@@ -9,6 +9,7 @@ class Login extends Component {
   constructor(props){
     super(props)
     this.state = {
+      data: [],
       newProgramDetails: {
         instructor_id : "11090442",
         instructor_name:"John Doe",
@@ -57,6 +58,20 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    fetch('http://localhost:8099/api/onemda/categories')
+    .then(response => response.json())
+    .then(myJson => {
+      this.setState({data: myJson}
+    )})
+  }
+
+
+  componentDidMount() {
+    fetch('http://localhost:8099/api/onemda/categories')
+      .then(response => response.json())
+      .then(myJson => {
+        this.setState({data: myJson}
+        )})
     let data = stubbedData.STUBBED
     if(data && data.length>0){
       let service_category =[{'value': '', 'label': 'Select one'}]
