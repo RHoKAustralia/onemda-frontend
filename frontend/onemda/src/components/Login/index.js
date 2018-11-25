@@ -107,9 +107,6 @@ class Login extends Component {
     );
   }
 
-  loginSubmitHandler=()=>{
-
-  }
   getCategories=()=>{
     if(this.state.newProgramDetails && this.state.newProgramDetails.program === 'Learning'){
       return this.state.LearningCategories
@@ -130,9 +127,10 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log('submitting')
 
     const data = {
-      "instructor_id" : "ABC12345",
+      "instructor_id" : "ABC123456",
       "instructor_name" : "ABC123",
       "session_date": "23-11-2018",
       "session_time":"Morning",
@@ -195,7 +193,7 @@ class Login extends Component {
       </div>,
       <div className="container-fluid">
         <div className="container">
-          <form className="form-horizontal m-top-2rem">
+          <form className="form-horizontal m-top-2rem" onSubmit={this.handleSubmit}>
             <SelectBox
               label="Service category: "
               id="program"
