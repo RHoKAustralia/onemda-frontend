@@ -59,9 +59,9 @@ export const HealthCategories = [
 ]
 
 export const PersonalDevelopmentOutComes = [
-  {'value': 'Exploring' , 'label': 'Exploring'},
-  {'value': 'Maintaining', 'label': 'Maintaining'},
-  {'value': 'Progessing', 'label': 'Progessing'}
+  {'value': 'DIS-ENGAGED' , 'label': 'DIS-ENGAGED'},
+  {'value': 'ENGAGED', 'label': 'ENGAGED'},
+  {'value': 'HIGHLY ENGAGED', 'label': 'HIGHLY ENGAGED'}
 ]
 
 export const Emotions=[

@@ -7,6 +7,11 @@
   margin:10px;
   cursor:pointer;
 }
+#WIDTH100 input[type=radio] {
+    display:none;
+    margin:10px;
+    cursor:pointer;
+}
 
 /*
 Change the look'n'feel of labels (which are adjacent to radiobuttons).
@@ -16,15 +21,31 @@ Add some margin, padding to label
   display:inline-block;
   margin:-2px;
   background-color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 1px solid #ced4da;
   cursor:pointer;
   padding: 0.5rem 5rem;
+  width: 33.33%;
 }
+#WIDTH100 input[type=radio] + label {
+    display:inline-block;
+    margin:-2px;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    cursor:pointer;
+    padding: 0.5rem 5rem;
+}
+
 /*
 Change background color for label next to checked radio button
 to make it look like highlighted button
 */
 #radioGroup input[type=radio]:checked + label {
+    background-image: none;
+    background-color: #001d39;
+    color: white;
+    border: 1px solid #001d39;
+}
+#WIDTH100 input[type=radio]:checked + label {
     background-image: none;
     background-color: #001d39;
     color: white;

@@ -10,7 +10,7 @@ const getOptions=(dname, data)=>{
 }
 const RadioButtonMulti =(props)=> {
   return (
-  <div className="form-group" id="radioGroup">
+  <div className="form-group" id={props.className === 'WIDTH100' ? 'WIDTH100' :"radioGroup"}>
     {getOptions(props.name, props.data)}
   </div>
   )
