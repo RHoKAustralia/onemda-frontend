@@ -4,3 +4,24 @@
 .mt-20px{
     margin-top: 20px !important;
 }
+.roles-div{
+    background-color: #00b4be;
+}
+.subnav-label-color{
+   color: #c9edef
+}
+.label-color{
+    color: #001d39
+}
+.pd-rem-0-dot-5{
+   padding: 0.5rem;
+}
+.pd-2per{
+    padding: 2% 0px;
+}
+.m-top-2rem{
+    margin-top: 2rem;
+}
+.form-group {
+    margin-bottom: 3rem !important;
+}

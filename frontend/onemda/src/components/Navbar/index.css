@@ -1,0 +1,17 @@
+nav#navbar{
+    background-color: #001d39!important;
+    padding: 1.5rem;
+}
+.bg-dark {
+    background-color: #001d39!important;
+}
+.bg-color{
+    color: rgb(201, 237, 239);
+}
+.logo{
+    background: url("./logo.png") center;
+}
+.center-heading{
+    font-size: 2rem;
+    color: #c9edef;
+}

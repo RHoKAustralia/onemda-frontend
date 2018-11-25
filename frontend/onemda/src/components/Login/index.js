@@ -3,6 +3,7 @@ import SelectBox from '../../common/SelectBox/index'
 import * as constants from '../../constants/enumeration'
 import RadioButtonMulti from '../../common/RadioButtonMulti/index'
 import Emoji from '../../common/Emoji/index'
+import './index.css'
 class Login extends Component {
   constructor(props){
     super(props)
@@ -119,83 +120,92 @@ class Login extends Component {
   render(){
     const {instructor_id} = this.state.newProgramDetails
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12">
-            <h2>Daily Activity Evaluation</h2>
+      [<div className="container-fluid roles-div">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="row pd-2per">
+                <div className="col-sm-12">
+                  <span className="subnav-label-color">Instructor Name:</span>
+                  <span className="label-color"> Linda Robinson</span>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="row pd-2per">
+                <div className="col-sm-12 text-right">
+                  <span className="subnav-label-color">Instructor Id:</span>
+                  <span className="label-color"> 976</span>
+                </div>
+              </div>
+            </div>
           </div>
-
         </div>
-        <hr/>
-        <form className="form-horizontal">
-          <div className="form-group row">
-            <div className="col-sm-2 col-6">Instructor Name: </div>
-            <div className="col-sm-3 col-6">
-              John Doe
+      </div>,
+      <div className="container-fluid">
+        <div className="container">
+          <form className="form-horizontal m-top-2rem">
+            <SelectBox
+              label="Service category: "
+              id="program"
+              name="program"
+              value={this.state.newProgramDetails.program}
+              data={constants.ProgramCategory}
+              handleChange={this.handleInput}/>
+            {this.isCategoryPresent() && <SelectBox
+              label="Activity: "
+              id="subCategory"
+              name="subCategory"
+              value={this.state.newProgramDetails.subCategory}
+              data={this.getCategories()}
+              handleChange={this.handleInput}/>}
+            <div className="form-group row">
+              <label htmlFor='date' className="col-sm-2 col-form-label">Date: </label>
+              <div className="col-sm-9">
+                <input type='date' className="form-control" id='date' name='date'/>
+              </div>
             </div>
-            <div className="col-sm-2 col-6">Instructor Id: </div>
-            <div className="col-sm-3 col-6">
-              {instructor_id}
+            <div className="form-group row">
+              <label htmlFor='session' className="col-sm-2 col-form-label">Session</label>
+              <div className="col-sm-6" id="session">
+                <RadioButtonMulti
+                  label="choose one"
+                  id="session"
+                  name="developmentOutcome"
+                  data={constants.TimeConvention}/>
+              </div>
             </div>
-          </div>
-          <SelectBox
-            label="Service category: "
-            id="program"
-            name="program"
-            value={this.state.newProgramDetails.program}
-            data={constants.ProgramCategory}
-            handleChange={this.handleInput}/>
-          {this.isCategoryPresent() && <SelectBox
-            label="Activity: "
-            id="subCategory"
-            name="subCategory"
-            value={this.state.newProgramDetails.subCategory}
-            data={this.getCategories()}
-            handleChange={this.handleInput}/>}
-          <div className="form-group row">
-            <label htmlFor='date' className="col-sm-2 col-form-label">Date: </label>
-            <div className="col-sm-9">
-              <input type='date' className="form-control" id='date' name='date'/>
-            </div>
-          </div>
-          <div className="form-group row">
-            <label htmlFor='session' className="col-sm-2 col-form-label">Session Time</label>
-            <div className="col-sm-6" id="session">
-              <RadioButtonMulti
-                label="choose one"
-                id="session"
-                name="developmentOutcome"
-                data={constants.TimeConvention}/>
-            </div>
-          </div>
-          <div className="form-group row">
-            <div className="col-sm-12 mb-20px">My Enjoyment in learning activities is:</div>
-            <div className="col-sm-12">
-              <Emoji
-                id="emotions"
-                name="smilyes"
-                value={this.state.newProgramDetails.subCategory}
-                data={constants.Emotions}
+            <div className="form-group row">
+              <div className="col-sm-12 mb-20px">My Enjoyment in learning activities is:</div>
+              <div className="col-sm-12">
+                <Emoji
+                  id="emotions"
+                  name="smilyes"
+                  value={this.state.newProgramDetails.subCategory}
+                  data={constants.Emotions}
 
-              />
+                />
+              </div>
             </div>
-          </div>
-          <div className="form-group row">
-            <div className="col-sm-12">My Participation in learning activities is:</div>
-            <div className="col-sm-12 mt-20px">
-              <Emoji
-                id="emotions"
-                name="participation"
-                value={this.state.newProgramDetails.subCategory}
-                data={constants.Emotions}
-              />
+            <div className="form-group row">
+              <div className="col-sm-12">My Participation in learning activities is:</div>
+              <div className="col-sm-12 mt-20px">
+                <Emoji
+                  id="emotions"
+                  name="participation"
+                  value={this.state.newProgramDetails.subCategory}
+                  data={constants.Emotions}
+                />
+              </div>
             </div>
-          </div>
-        <div className="form-group row">
-          <button type="submit">Submit</button>
+            <div className="form-group row">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
         </div>
-        </form>
       </div>
+        ]
+
     )
   }
 }
