@@ -25,3 +25,9 @@
 .form-group {
     margin-bottom: 3rem !important;
 }
+.btn-submit{
+    padding: 12px;
+    background: #001c39;
+    color: white;
+    cursor: pointer;
+}
