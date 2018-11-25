@@ -2,13 +2,15 @@ import React from 'react';
 import './index.css';
 
 const getOptions=(dname, data)=>{
-  return data.map((item, index)=>{
-    return <><input type="radio" id={item.value} name={dname} value={item.value} /><label for={item.value}>{item.label}</label></>
-  })
+  return data ? data.map((item, index)=>{
+    return <React.Fragment key={index}>
+    <input type="radio" id={item.value} name={dname} value={item.value} />
+    <label htmlFor={item.value}>{item.label}</label></React.Fragment>
+  }) :null
 }
 const RadioButtonMulti =(props)=> {
   return (
-  <div class="form-group">    
+  <div className="form-group" id="radioGroup">
     {getOptions(props.name, props.data)}
   </div>
   )

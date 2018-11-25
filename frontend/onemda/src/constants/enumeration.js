@@ -1,8 +1,7 @@
 
 export const TimeConvention = [
-  {'value': '', 'label': 'Select one'},
-  {'value': 'AM', 'label': 'Morning'},
-  {'value': 'PM', 'label': 'Afternoon'}
+  {'value': 'Morning', 'label': 'Morning'},
+  {'value': 'Afternoon', 'label': 'Afternoon'}
 ]
 export const ProgramCategory = [
   {'value': '', 'label': 'Select one'},
@@ -64,3 +63,8 @@ export const PersonalDevelopmentOutComes = [
   {'value': 'Progessing', 'label': 'Progessing'}
 ]
 
+export const Emotions=[
+  {'value': '-1' , 'label': 'sad'},
+  {'value': '0', 'label': 'neutral'},
+  {'value': '1', 'label': 'happy'}
+]
