@@ -1,71 +1,62 @@
 package com.onemda.onemdabackend.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Participant {
 	
-	private String participant_id;
-	private String participant_name;
-	private String instructor_feedback;
-	private String instructor_comment;
-	private String participant_feedback;
-	/**
-	 * @return the participant_id
-	 */
-	public String getParticipant_id() {
-		return participant_id;
+	@JsonProperty(value="participant_id")
+	private String participantId;
+	
+	@JsonProperty(value="participant_name")
+	private String participantName;
+	
+	@JsonProperty(value="instructor_feedback")
+	private String instructorFeedback;
+	
+	@JsonProperty(value="instructor_comment")
+	private String instructorComment;
+	
+	@JsonProperty(value="participant_feedback")
+	private String participantFeedback;
+
+	public String getParticipantId() {
+		return participantId;
 	}
-	/**
-	 * @param participant_id the participant_id to set
-	 */
-	public void setParticipant_id(String participant_id) {
-		this.participant_id = participant_id;
+
+	public void setParticipantId(String participantId) {
+		this.participantId = participantId;
 	}
-	/**
-	 * @return the participant_name
-	 */
-	public String getParticipant_name() {
-		return participant_name;
+
+	public String getParticipantName() {
+		return participantName;
 	}
-	/**
-	 * @param participant_name the participant_name to set
-	 */
-	public void setParticipant_name(String participant_name) {
-		this.participant_name = participant_name;
+
+	public void setParticipantName(String participantName) {
+		this.participantName = participantName;
 	}
-	/**
-	 * @return the instructor_feedback
-	 */
-	public String getInstructor_feedback() {
-		return instructor_feedback;
+
+	public String getInstructorFeedback() {
+		return instructorFeedback;
 	}
-	/**
-	 * @param instructor_feedback the instructor_feedback to set
-	 */
-	public void setInstructor_feedback(String instructor_feedback) {
-		this.instructor_feedback = instructor_feedback;
+
+	public void setInstructorFeedback(String instructorFeedback) {
+		this.instructorFeedback = instructorFeedback;
 	}
-	/**
-	 * @return the instructor_comment
-	 */
-	public String getInstructor_comment() {
-		return instructor_comment;
+
+	public String getInstructorComment() {
+		return instructorComment;
 	}
-	/**
-	 * @param instructor_comment the instructor_comment to set
-	 */
-	public void setInstructor_comment(String instructor_comment) {
-		this.instructor_comment = instructor_comment;
+
+	public void setInstructorComment(String instructorComment) {
+		this.instructorComment = instructorComment;
 	}
-	/**
-	 * @return the participant_feedback
-	 */
-	public String getParticipant_feedback() {
-		return participant_feedback;
+
+	public String getParticipantFeedback() {
+		return participantFeedback;
 	}
-	/**
-	 * @param participant_feedback the participant_feedback to set
-	 */
-	public void setParticipant_feedback(String participant_feedback) {
-		this.participant_feedback = participant_feedback;
+
+	public void setParticipantFeedback(String participantFeedback) {
+		this.participantFeedback = participantFeedback;
 	}
 
 }
