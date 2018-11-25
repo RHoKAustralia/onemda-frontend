@@ -8,6 +8,7 @@ class Login extends Component {
   constructor(props){
     super(props)
     this.state = {
+      data: [],
       newProgramDetails: {
         instructor_id : "11090442",
         instructor_name:"John Doe",
@@ -46,6 +47,15 @@ class Login extends Component {
     //   }
     // }
   }
+
+  componentDidMount() {
+    fetch('http://localhost:8099/api/onemda/categories')
+    .then(response => response.json())
+    .then(myJson => {
+      this.setState({data: myJson}
+    )})
+  }
+
   handleInput=(e)=> {
     let value = e.target.value;
     let name = e.target.name;
@@ -118,6 +128,9 @@ class Login extends Component {
   }
 
   render(){
+    console.log("@@@@@data")
+    console.log(this.state.data)
+
     const {instructor_id} = this.state.newProgramDetails
     return (
       [<div className="container-fluid roles-div">
