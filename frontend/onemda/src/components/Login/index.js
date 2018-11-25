@@ -14,7 +14,10 @@ class Login extends Component {
         instructor_name:"John Doe",
         program: "",
         subCategory: "",
-        submittedAt:""
+        submittedAt:"",
+        learning:'',
+        social:'',
+        health:''
       },
       categoryData:[],
       HealthCategories:[],
@@ -232,6 +235,7 @@ class Login extends Component {
                 <RadioButtonMulti
                   label="choose one"
                   id="learning"
+                  value={this.state.newProgramDetails.learning}
                   name="learning"
                   data={constants.PersonalDevelopmentOutComes}/>
               </div>
@@ -249,6 +253,7 @@ class Login extends Component {
                   label="choose one"
                   id="social"
                   name="social"
+                  value={this.state.newProgramDetails.social}
                   data={constants.PersonalDevelopmentOutComes}/>
               </div>
             </div>
@@ -265,6 +270,7 @@ class Login extends Component {
                   label="choose one"
                   id="health"
                   name="health"
+                  value={this.state.newProgramDetails.health}
                   data={constants.PersonalDevelopmentOutComes}/>
               </div>
             </div>
