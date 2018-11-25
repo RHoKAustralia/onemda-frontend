@@ -1,76 +1,106 @@
 package com.onemda.onemdabackend.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.onemda.onemdabackend.util.LocalDateDeserializer;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 @Document(collection = "instructorfeedback")
 public class InstructorFeedback {
-	private String instructor_id;
-	private String instructor_name;
 	
-	@JsonDeserialize(using=LocalDateDeserializer.class)
-	private LocalDate session_date;
-	private String session_time;
+	@JsonProperty(value="instructor_id")
+	private String instructorId;
 	
-	@JsonDeserialize(using=LocalDateDeserializer.class)
-	private LocalDate submittedAt;
-	private String activity_name;
-	private List<String> service_category;
+	@JsonProperty(value="instructor_name")
+	private String instructorName;
+	
+	@JsonProperty(value="session_date")
+	@JsonFormat(shape = Shape.STRING, pattern="dd-MM-yyyy")
+	private LocalDate sessionDate;
+	
+	@JsonProperty(value="session_time")
+	private String sessionTime;
+	
+	@JsonProperty(value="submittedAt")
+	@JsonFormat(shape = Shape.STRING, pattern="dd-MM-yyyy")
+	private Date submittedAt;
+	
+	@JsonProperty(value="activity_name")
+	private String activityName;
+	
+	@JsonProperty(value="service_category")
+	private List<String> serviceCategory;
+	
+	@JsonProperty(value="participants")
 	private List<Participant> participants;
-	public String getInstructor_id() {
-		return instructor_id;
-	}
-	public void setInstructor_id(String instructor_id) {
-		this.instructor_id = instructor_id;
-	}
-	public String getInstructor_name() {
-		return instructor_name;
-	}
-	public void setInstructor_name(String instructor_name) {
-		this.instructor_name = instructor_name;
+
+	public String getInstructorId() {
+		return instructorId;
 	}
 
-	public String getSession_time() {
-		return session_time;
-	}
-	public void setSession_time(String session_time) {
-		this.session_time = session_time;
+	public void setInstructorId(String instructorId) {
+		this.instructorId = instructorId;
 	}
 
-	public String getActivity_name() {
-		return activity_name;
+	public String getInstructorName() {
+		return instructorName;
 	}
-	public void setActivity_name(String activity_name) {
-		this.activity_name = activity_name;
+
+	public void setInstructorName(String instructorName) {
+		this.instructorName = instructorName;
 	}
-	public List<String> getService_category() {
-		return service_category;
+
+	public LocalDate getSessionDate() {
+		return sessionDate;
 	}
-	public void setService_category(List<String> service_category) {
-		this.service_category = service_category;
+
+	public void setSessionDate(LocalDate sessionDate) {
+		this.sessionDate = sessionDate;
 	}
+
+	public String getSessionTime() {
+		return sessionTime;
+	}
+
+	public void setSessionTime(String sessionTime) {
+		this.sessionTime = sessionTime;
+	}
+
+	public Date getSubmittedAt() {
+		return submittedAt;
+	}
+
+	public void setSubmittedAt(Date submittedAt) {
+		this.submittedAt = submittedAt;
+	}
+
+	public String getActivityName() {
+		return activityName;
+	}
+
+	public void setActivityName(String activityName) {
+		this.activityName = activityName;
+	}
+
+	public List<String> getServiceCategory() {
+		return serviceCategory;
+	}
+
+	public void setServiceCategory(List<String> serviceCategory) {
+		this.serviceCategory = serviceCategory;
+	}
+
 	public List<Participant> getParticipants() {
 		return participants;
 	}
+
 	public void setParticipants(List<Participant> participants) {
 		this.participants = participants;
 	}
-	public LocalDate getSession_date() {
-		return session_date;
-	}
-	public void setSession_date(LocalDate session_date) {
-		this.session_date = session_date;
-	}
-	public LocalDate getSubmittedAt() {
-		return submittedAt;
-	}
-	public void setSubmittedAt(LocalDate submittedAt) {
-		this.submittedAt = submittedAt;
-	}
-	
-	
+
 }

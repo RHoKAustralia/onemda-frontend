@@ -1,5 +1,6 @@
 package com.onemda.onemdabackend.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class OnemdaController {
 	@CrossOrigin
 	@PostMapping("/instructorfeedback")
 	public void postInstructorFeedback(@RequestBody InstructorFeedback instructorFeedback){
+		instructorFeedback.setSubmittedAt(new Date());
 		instructorFeedbackService.addInstructorFeedback(instructorFeedback);
 	}
 	
