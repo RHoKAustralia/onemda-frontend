@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.onemda.onemdabackend.model.InstructorFeedback;
 import com.onemda.onemdabackend.service.InstructorFeedbackService;
 
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/onemda")
 public class OnemdaController {
@@ -25,7 +27,7 @@ public class OnemdaController {
 		return "Hello World";
 	}
 
-	
+	@CrossOrigin
 	@PostMapping("/instructorfeedback")
 	public void postInstructorFeedback(@RequestBody InstructorFeedback instructorFeedback){
 		instructorFeedbackService.addInstructorFeedback(instructorFeedback);

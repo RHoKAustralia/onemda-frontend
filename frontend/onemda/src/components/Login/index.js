@@ -12,6 +12,8 @@ class Login extends Component {
       },
       submittedData:null
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleInput=(e)=> {
     let value = e.target.value;
@@ -43,6 +45,47 @@ class Login extends Component {
       return false
     }
   }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+
+    const data = {
+      "instructor_id" : "ABC12345",
+      "instructor_name" : "ABC123",
+      "session_date": "23-11-2018",
+      "session_time":"Morning",
+      "submittedAt": "23-11-2018",
+      "activity_name": "Cricket",
+      "service_category" : ["Sport","Health"],
+      "participants" : [
+                            {
+                              "participant_id" : "xyz123" ,
+                              "participant_name" : "Ankit Singh" ,
+                              "instructor_feedback" : "1",
+                              "instructor_comment" : "comments from instructor",
+                              "participant_feedback" : "1"
+                            },
+                            {
+                              "participant_id" : "xyz1234" ,
+                              "participant_name" : "NIkhil" ,
+                              "instructor_feedback" : "1",
+                              "instructor_comment" : "comments from instructor",
+                              "participant_feedback" : "1"
+                            }
+                        ]
+     }
+
+    fetch('http://localhost:8099/api/onemda/instructorfeedback', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    })
+    console.log('submitted')
+  }
+
   render(){
     return (
       <div className="container">
@@ -64,6 +107,10 @@ class Login extends Component {
             value={this.state.newProgramDetails.subCategory}
             data={this.getCategories()}
             handleChange={this.handleInput}/>}
+        </form>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" name="email"/>
+          <button type="submit">Submit</button>
         </form>
       </div>
     )
