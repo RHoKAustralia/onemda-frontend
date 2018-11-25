@@ -171,12 +171,70 @@ class Login extends Component {
                 <RadioButtonMulti
                   label="choose one"
                   id="session"
+                  className="WIDTH100"
                   name="developmentOutcome"
                   data={constants.TimeConvention}/>
               </div>
             </div>
+            <SelectBox
+              label="Name of client: "
+              id="program"
+              name="program"
+              value={this.state.newProgramDetails.program}
+              data={constants.ProgramCategory}
+              handleChange={this.handleInput}/>
+            <div className="row">
+              <div className="col-sm-12">
+                <p><b>Learning - </b>Onemda will suport me with everyday learning that promotes my independence and personal development over the next 12 months</p>
+              </div>
+              <div className="col-sm-12">
+                <RadioButtonMulti
+                  label="choose one"
+                  id="session"
+                  name="developmentOutcome"
+                  data={constants.PersonalDevelopmentOutComes}/>
+              </div>
+            </div>
+            <div className="form-group">
+              <textarea className="form-control" rows="2" id="learningComment" placeholder="Comments"></textarea>
+            </div>
+            <div className="row">
+              <div className="col-sm-12">
+                <p><b>SOCIAL AND RECREATIONAL - </b>Onemda will support me with social and rexcreational opportunities that promote my independence and personal developement of the next
+                  12 months</p>
+              </div>
+              <div className="col-sm-12">
+                <RadioButtonMulti
+                  label="choose one"
+                  id="session"
+                  name="developmentOutcome"
+                  data={constants.PersonalDevelopmentOutComes}/>
+              </div>
+            </div>
+            <div className="form-group">
+              <textarea className="form-control" rows="2" id="socialComment" placeholder="Comments"></textarea>
+            </div>
+            <div className="row">
+              <div className="col-sm-12">
+                <p><b>HEALTH AND WELLBEING -  </b>Onemda will support me through opportunites to enrich
+                  my health and wellbeing over the next 12 months</p>
+              </div>
+              <div className="col-sm-12">
+                <RadioButtonMulti
+                  label="choose one"
+                  id="session"
+                  name="developmentOutcome"
+                  data={constants.PersonalDevelopmentOutComes}/>
+              </div>
+            </div>
+            <div className="form-group">
+              <textarea className="form-control" rows="2" id="healthComment" placeholder="Comments"></textarea>
+            </div>
+
             <div className="form-group row">
-              <div className="col-sm-12 mb-20px">My Enjoyment in learning activities is:</div>
+              <div className="col-sm-12 mb-20px">
+                <h3>My Enjoyment in learning activities is:</h3>
+                </div>
               <div className="col-sm-12">
                 <Emoji
                   id="emotions"
@@ -188,7 +246,8 @@ class Login extends Component {
               </div>
             </div>
             <div className="form-group row">
-              <div className="col-sm-12">My Participation in learning activities is:</div>
+              <div className="col-sm-12">
+                <h3>My Participation in learning activities is:</h3></div>
               <div className="col-sm-12 mt-20px">
                 <Emoji
                   id="emotions"
