@@ -69,3 +69,12 @@ export const Emotions=[
   {'value': '0', 'label': 'neutral'},
   {'value': '1', 'label': 'happy'}
 ]
+
+export const ClientNames =[
+  {'value': '', 'label': 'Select one'},
+  {'value': 'AVA GOLD', 'label': 'AVA GOLD'},
+  {'value': 'ELIJAH THOMAS', 'label': 'ELIJAH THOMAS'},
+  {'value': 'ISABELLA JOHNSON', 'label': 'ISABELLA JOHNSON'},
+  {'value': 'LIAM WANG', 'label': 'LIAM WANG'}
+
+]

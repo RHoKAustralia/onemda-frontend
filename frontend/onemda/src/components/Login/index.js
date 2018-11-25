@@ -3,6 +3,7 @@ import SelectBox from '../../common/SelectBox/index'
 import * as constants from '../../constants/enumeration'
 import RadioButtonMulti from '../../common/RadioButtonMulti/index'
 import Emoji from '../../common/Emoji/index'
+import * as stubbedData from './jsonStubbed'
 import './index.css'
 class Login extends Component {
   constructor(props){
@@ -15,6 +16,11 @@ class Login extends Component {
         subCategory: "",
         submittedAt:""
       },
+      categoryData:[],
+      HealthCategories:[],
+      SocialCategories:[],
+      LearningCategories:[],
+      activityData:null,
       submittedData:null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -46,6 +52,40 @@ class Login extends Component {
     //   }
     // }
   }
+
+  componentDidMount() {
+    let data = stubbedData.STUBBED
+    if(data && data.length>0){
+      let service_category =[{'value': '', 'label': 'Select one'}]
+      let SocialCategories =[{'value': '', 'label': 'Select one'}]
+      let LearningCategories=[{'value': '', 'label': 'Select one'}]
+      let HealthCategories=[{'value': '', 'label': 'Select one'}]
+      data.forEach((item)=>{
+        service_category.push({'value': item.service_category, 'label': item.service_category})
+        if(item.service_category === 'Learning'){
+          item.activities.forEach((item)=>{
+            LearningCategories.push({'value': item.activity_name, 'label': item.activity_name})
+          })
+        }
+        if(item.service_category === 'Health & Wellbeing'){
+          item.activities.forEach((item)=>{
+            HealthCategories.push({'value': item.activity_name, 'label': item.activity_name})
+          })
+        }
+        if(item.service_category === 'Social and Rec'){
+          item.activities.forEach((item)=>{
+            SocialCategories.push({'value': item.activity_name, 'label': item.activity_name})
+          })
+        }
+      })
+      this.setState(prevState => ({
+        categoryData: [...prevState.categoryData, ...service_category],
+        LearningCategories: [...prevState.categoryData, ...LearningCategories],
+        HealthCategories: [...prevState.categoryData, ...HealthCategories],
+        SocialCategories: [...prevState.categoryData, ...SocialCategories]
+      }))
+    }
+  }
   handleInput=(e)=> {
     let value = e.target.value;
     let name = e.target.name;
@@ -61,11 +101,11 @@ class Login extends Component {
   }
   getCategories=()=>{
     if(this.state.newProgramDetails && this.state.newProgramDetails.program === 'Learning'){
-      return constants.LearningCategories
-    } else if(this.state.newProgramDetails && this.state.newProgramDetails.program === 'Social & Rec'){
-      return constants.SocialCategories
+      return this.state.LearningCategories
+    } else if(this.state.newProgramDetails && this.state.newProgramDetails.program === 'Social and Rec'){
+      return this.state.SocialCategories
     } else if(this.state.newProgramDetails && this.state.newProgramDetails.program === 'Health & Wellbeing'){
-      return constants.HealthCategories
+      return this.state.HealthCategories
     } else {}
   }
 
@@ -150,7 +190,8 @@ class Login extends Component {
               id="program"
               name="program"
               value={this.state.newProgramDetails.program}
-              data={constants.ProgramCategory}
+              //data={constants.ProgramCategory}
+              data={this.state.categoryData}
               handleChange={this.handleInput}/>
             {this.isCategoryPresent() && <SelectBox
               label="Activity: "
@@ -181,7 +222,7 @@ class Login extends Component {
               id="program"
               name="program"
               value={this.state.newProgramDetails.program}
-              data={constants.ProgramCategory}
+              data={constants.ClientNames}
               handleChange={this.handleInput}/>
             <div className="row">
               <div className="col-sm-12">
@@ -190,8 +231,8 @@ class Login extends Component {
               <div className="col-sm-12">
                 <RadioButtonMulti
                   label="choose one"
-                  id="session"
-                  name="developmentOutcome"
+                  id="learning"
+                  name="learning"
                   data={constants.PersonalDevelopmentOutComes}/>
               </div>
             </div>
@@ -206,8 +247,8 @@ class Login extends Component {
               <div className="col-sm-12">
                 <RadioButtonMulti
                   label="choose one"
-                  id="session"
-                  name="developmentOutcome"
+                  id="social"
+                  name="social"
                   data={constants.PersonalDevelopmentOutComes}/>
               </div>
             </div>
@@ -222,8 +263,8 @@ class Login extends Component {
               <div className="col-sm-12">
                 <RadioButtonMulti
                   label="choose one"
-                  id="session"
-                  name="developmentOutcome"
+                  id="health"
+                  name="health"
                   data={constants.PersonalDevelopmentOutComes}/>
               </div>
             </div>
@@ -258,7 +299,10 @@ class Login extends Component {
               </div>
             </div>
             <div className="form-group row">
-              <button type="submit">Submit</button>
+              <div className="col-sm-12 text-center">
+                <button type="submit" className="btn-submit">Submit</button>
+              </div>
+
             </div>
           </form>
         </div>
