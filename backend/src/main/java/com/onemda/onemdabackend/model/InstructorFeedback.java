@@ -20,14 +20,14 @@ public class InstructorFeedback {
 	private String instructorName;
 	
 	@JsonProperty(value="session_date")
-	@JsonFormat(shape = Shape.STRING, pattern="dd-MM-yyyy")
+	@JsonFormat(shape = Shape.STRING, pattern="yyyy-MM-dd")
 	private LocalDate sessionDate;
 	
 	@JsonProperty(value="session_time")
 	private String sessionTime;
 	
 	@JsonProperty(value="submittedAt")
-	@JsonFormat(shape = Shape.STRING, pattern="dd-MM-yyyy")
+	@JsonFormat(shape = Shape.STRING, pattern="yyyy-MM-dd")
 	private Date submittedAt;
 	
 	@JsonProperty(value="activity_name")
