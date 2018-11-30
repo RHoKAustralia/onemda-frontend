@@ -1,0 +1,16 @@
+.SelectableButtonGroupWithLabel {
+  height: 50px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.SelectableButtonGroupLabel {
+  flex: 1;
+  text-align: center;
+}
+
+.SelectableButtonGroupButtons {
+  flex: 6;
+  height: 40px;
+}

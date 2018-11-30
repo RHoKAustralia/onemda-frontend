@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import SelectBox from '../../common/SelectBox/index'
 import * as constants from '../../constants/enumeration'
 import RadioButtonMulti from '../../common/RadioButtonMulti/index'
+import SelectableButtonGroup from '../../common/SelectableButtonGroup/index'
+import OnemdaForm from '../OnemdaForm/index'
 import Emoji from '../../common/Emoji/index'
 import * as stubbedData from './jsonStubbed'
 import './index.css'
@@ -21,6 +23,7 @@ class Login extends Component {
         health:''
       },
       categoryData:[],
+      categoryFormData: [],
       HealthCategories:[],
       SocialCategories:[],
       LearningCategories:[],
@@ -61,7 +64,9 @@ class Login extends Component {
     fetch('http://localhost:8099/api/onemda/categories')
       .then(response => response.json())
       .then(myJson => {
-        // this.setState({data: myJson}
+        this.setState({categoryFormData: myJson})
+        console.log(myJson)
+        console.log('data above')
         //let data = stubbedData.STUBBED
         let data = myJson
         if(data && data.length>0){
@@ -169,6 +174,9 @@ class Login extends Component {
 
   render(){
     const {instructor_id} = this.state.newProgramDetails
+
+    const options1 = ['Disengaged', 'Neutral', 'Engaged']
+    const options2 = ['Morning', 'Afternoon']
     return (
       [<div className="container-fluid roles-div">
         <div className="container">
@@ -194,6 +202,11 @@ class Login extends Component {
       </div>,
       <div className="container-fluid">
         <div className="container">
+          <OnemdaForm categoryData = {this.state.categoryFormData} handleSubmit={this.handleSubmit}/>
+
+
+
+
           <form className="form-horizontal m-top-2rem" onSubmit={this.handleSubmit}>
             <SelectBox
               label="Service category: "
