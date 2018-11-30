@@ -23,7 +23,6 @@ public class CategoryServiceController {
 	@CrossOrigin
 	@GetMapping("/categories")
 	public List<ServiceCategory> getAllServiceCategories(){
-		System.out.println("I am here");
 		return categoryService.getAllTheServiceCategory();
 	}
 	
