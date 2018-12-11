@@ -5,13 +5,13 @@ import './index.css'
 class SelectBoxWithLabel extends React.Component {
 
   render() {
-    const { category } = this.props
+    const { category, value } = this.props
     return (
       <div className='SelectBox2'>
         <div className='SelectBox2Label'>
           {category}
         </div>
-        <SelectBox2 options={this.props.options} handleChange={this.props.handleChange}></SelectBox2>
+        <SelectBox2 options={this.props.options} handleChange={this.props.handleChange} value={value}></SelectBox2>
       </div>
     )
   }
