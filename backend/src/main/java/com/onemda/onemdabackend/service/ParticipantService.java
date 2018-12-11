@@ -16,22 +16,22 @@ public class ParticipantService {
     private ParticipantDAO participantDAO;
 
     public List<Participant> getAllTheParticipants() {
-        List<Participant> participants = new ArrayList<>();
+//        List<Participant> participants = new ArrayList<>();
+//
+//        for (Participant participant: participants) {
+//            System.out.println(participant.getParticipantName());
+//        }
+//
+//        Participant p = new Participant();
+//        p.setParticipantId("123");
+//        p.setParticipantName("test");
+//
+//        participants.add(p);
+//
+//        return participants;
 
-        for (Participant participant: participants) {
-            System.out.println(participant.getParticipantName());
-        }
 
-        Participant p = new Participant();
-        p.setParticipantId("123");
-        p.setParticipantName("test");
-
-        participants.add(p);
-
-        return participants;
-
-
-//        return participantDAO.findAll();
+    	return participantDAO.findAll();
     }
 
 }
