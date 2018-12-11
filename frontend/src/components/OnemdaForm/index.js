@@ -6,7 +6,7 @@ import SelectBoxWithLabel from '../../common/SelectBoxWithLabel/index'
 import Date from '../../common/Date/index'
 import TextBox from '../../common/TextBox/index'
 import TextWithCaption from '../../common/TextWithCaption/index'
-import Emoji from '../../common/Emoji/index'
+import { withRouter } from 'react-router-dom';
 
 class OnemdaForm extends React.Component {
   constructor(props) {
@@ -161,7 +161,12 @@ class OnemdaForm extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data)
-    })
+    }).then((response)=>{
+        this.props.history.push('/AdminView')
+      }
+    ).catch(function(err) {
+      console.log('Fetch Error :-S', err);
+    });
 
     console.log('submitting for realz')
   }
@@ -181,7 +186,7 @@ class OnemdaForm extends React.Component {
         <SelectBoxWithLabel category='Service Category' options={categories} handleChange={this.handleChangeSelectBoxServiceCategory}></SelectBoxWithLabel>
         <Date handleChange={this.handleChangeDate}></Date>
         <SelectableButtonGroupWithLabel handleChange={this.handleChangeSBGSessionTime}  label='Session Time' options={options2}></SelectableButtonGroupWithLabel>
-        <SelectBoxWithLabel category='Activity Name' options={this.state.activityCategoryNames} handleChange={this.handleChangeSelectBoxActivityName}></SelectBoxWithLabel>
+        <SelectBoxWithLabel category='Activity Name' options={this.state.activityCategoryNames} handleChange={this.handleChangeSelectBoxActivityName} value={this.state.activityName}></SelectBoxWithLabel>
         <TextWithCaption heading='LEARNING' text=' Onemda will suport me with everyday learning that promotes my independence and personal development over the next 12 months'></TextWithCaption>
         <SelectableButtonGroup handleChange={() => {}} options={options1}></SelectableButtonGroup>
         <TextBox handleChange={this.handleChangeLearningComment}></TextBox>
@@ -199,4 +204,4 @@ class OnemdaForm extends React.Component {
   }
 }
 
-export default OnemdaForm
+export default withRouter(OnemdaForm)

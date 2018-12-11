@@ -6,11 +6,11 @@ class SelectBox2 extends React.Component {
   }
 
   render() {
-    const { options } = this.props
+    const { options, value } = this.props
     return (
-      <select className='SelectBox2SelectBox' onChange={this.props.handleChange}>
+      <select className='SelectBox2SelectBox' onChange={this.props.handleChange} value={value}>
         {options.map((option, index) => {
-          return <option key={index}>{option}</option>
+          return <option key={index} value={option}>{option}</option>
         })}
       </select>
     )

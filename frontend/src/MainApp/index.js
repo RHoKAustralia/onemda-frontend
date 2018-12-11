@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from '../components/Login/index'
 import NotFound from '../components/NotFound/index'
+import AdminView from '../components/AdminView/index'
 import { Switch, Route, Redirect } from 'react-router-dom'
 class MainApp extends Component {
   constructor(props){
@@ -15,12 +16,12 @@ class MainApp extends Component {
       submittedData:data
     })
   }
-
   render() {
     return (
         <main>
           <Switch>
             <Route exact path='/' render={() => <Login onSubmit={this.onSubmit}/>}/>
+            <Route exact path='/AdminView' component={AdminView} />
             <Route path='/NotFound' component={NotFound} />
             <Redirect from='*' to='/NotFound' />
           </Switch>
