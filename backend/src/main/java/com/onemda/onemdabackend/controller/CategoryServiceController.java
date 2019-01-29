@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.onemda.onemdabackend.model.ServiceCategory;
 import com.onemda.onemdabackend.service.CategoryService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 
 @CrossOrigin
 @RestController
 @RequestMapping("/api/onemda")
+@Api(description = "Set of endpoints for dealing with service categories")
 public class CategoryServiceController {
 	
 	@Autowired
@@ -22,6 +26,7 @@ public class CategoryServiceController {
 	
 	@CrossOrigin
 	@GetMapping("/categories")
+	@ApiOperation("Returns list of all the available service categories")
 	public List<ServiceCategory> getAllServiceCategories(){
 		return categoryService.getAllTheServiceCategory();
 	}
